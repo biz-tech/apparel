@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mobile test</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="menu">
+		<a href="contact.html"><img src="img/contact.jpg" class="cont"/></a>
+		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
+		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
+		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
+	</div>
+	
+<div class="container" ng-app="" ng-controller="cntrCont">
+		<table>
+			<tr class="title">
+				<td>Firstname</td>
+				<td>Lastname</td>
+				<td>Email</td>
+				<td>Mobile</td>				
+			</tr>
+			<tr ng-repeat="x in data">						
+				<td>{{x.firstname}}</td>
+				<td>{{x.lastname}}</td>
+				<td>{{x.email}}</td>
+				<td>{{x.mobile}}</td>
+			</tr>
+	</table>
+</div>
+
+<input type="button" onclick="location.href='addContact.html';" value="add Contact" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

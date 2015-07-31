@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mobile test</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="menu">
+		<a href="contact.html"><img src="img/contact.jpg" class="cont"/></a>
+		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
+		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
+		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
+	</div>
+	
+	
+<div class="container" ng-app="" ng-controller="cntrOrder">
+	<table>
+		<tr class="title">
+			<td>subject</td>
+			<td>salesorder_no</td>
+			<td>total</td>
+			<td>subtotal</td>
+			<td>sostatus</td>
+			<td>pre_tax_total</td>
+		</tr>
+		<tr ng-repeat="x in data">						
+			<td>{{x.subject}}</td>
+			<td>{{x.salesorder_no}}</td>
+			<td>{{x.total}}</td>
+			<td>{{x.subtotal}}</td>
+			<td>{{x.sostatus}}</td>
+			<td>{{x.pre_tax_total}}</td>			
+		</tr>
+	</table>
+</div>
+	
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
