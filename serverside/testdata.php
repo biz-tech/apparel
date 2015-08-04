@@ -1,12 +1,14 @@
+
 <?php
+
 header('Access-Control-Allow-Origin: *');
 
 function getDBInstance()
 {
 	$servername = "localhost";
-	$username = "i714364_vtig1";
-	$password = "J@va5vrgqj08(]4";
-	$dbname = "i714364_vtig1";
+	$username = "root";
+	$password = "";
+	$dbname = "vtigercrm";
 	
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -18,8 +20,7 @@ function getDBInstance()
 	
 	mysqli_select_db($conn,"vtigercrm");
 
-	return $conn;
-
+	return $conn;	
 }
 
 function query($dbconn, $query)
@@ -35,10 +36,17 @@ $result = mysqli_query($dbconn,$query)
 		'attachmentsid' => $row['attachmentsid'],
 		'path' => $row['path'], 
 		'imagename'=>$row['imagename'],
-		'firstname'=>$row['firstname'],
-		'lastname'=>$row['lastname'],
-		'email'=>$row['email'],
-		'mobile'=>$row['mobile'],
+		
+		'accountname'=>$row['accountname'],
+		'phone'=>$row['phone'],
+		'email'=>$row['email1'],
+		'accountid'=>$row['accountid'],
+		'street'=>$row['bill_street'],
+		'city'=>$row['bill_city'],
+		'state'=>$row['bill_state'],
+		'country'=>$row['bill_country'],
+		'pobox'=>$row['bill_pobox'],
+		
 		'subject'=>$row['subject'],
 		'customerno'=>$row['customerno'],
 		'salesorder_no'=>$row['salesorder_no'],
@@ -56,31 +64,49 @@ $result = mysqli_query($dbconn,$query)
 $oper = $_GET['oper'];
 
 $db_instance = getDBInstance();
+
+// product list
 if($oper == "Product"){
 
-//$query = "select productname, productcode,attachmentsid, path, imagename from vtiger_products pd inner join vtiger_attachments at ON pd.imagename = at.name";
 	$query = "SELECT pd.imagename, at.path, at.attachmentsid
-FROM vtiger_crmentity ce, vtiger_products pd, vtiger_seattachmentsrel sa, vtiger_attachments at
-WHERE ce.deleted =0
-AND ce.crmid = pd.productid
-AND pd.productid = sa.crmid
-AND sa.attachmentsid = at.attachmentsid";
+	FROM vtiger_crmentity ce, vtiger_products pd, vtiger_seattachmentsrel sa, vtiger_attachments at
+	WHERE ce.deleted =0
+	AND ce.crmid = pd.productid
+	AND pd.productid = sa.crmid
+	AND sa.attachmentsid = at.attachmentsid";	
 
 	$query_result = query($db_instance, $query);
 	echo json_encode($query_result);
 }
-else if($oper == "Contact")
-{
-	$query = "select firstname, lastname, email, mobile from vtiger_contactdetails";
+// organization list
+else if($oper == "Contact"){
+	$query = "select accountid, accountname, phone, email1 from vtiger_account";
 
 	$query_result = query($db_instance, $query);
 	echo json_encode($query_result);
-}else if($oper == "Order")
-{
+}
+// order list
+else if($oper == "Order"){
 	$query = "SELECT * FROM vtiger_salesorder";
 
 	$query_result = query($db_instance, $query);
 	echo json_encode($query_result);
 }
+// organization detail list
+else if($oper == "accountDetail"){
+	$orgname = $_GET['orgname'];
+	
+	$query = "select distinct ac.accountid, ac.accountname, ac.phone, ac.email1, ab.bill_street, ab.bill_city, ab.bill_state, ab.bill_country, ab.bill_pobox
+	from vtiger_account ac, vtiger_accountbillads ab
+	where ac.accountid = ab.accountaddressid
+	and ac.accountname = '$orgname'";	
+
+	$query_result = query($db_instance, $query);
+	echo json_encode($query_result);	
+}else if($oper == "orderDetail"){
+
+}
+
+;
 ?>
  

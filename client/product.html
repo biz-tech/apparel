@@ -11,20 +11,19 @@
 		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
 		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
 		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
+	</div>	
+	
+<div class="container" ng-app="" ng-controller="cntrProd">	
+	<div class="title">
+			<td>Product</td>							
+	</div>	
+	<div ng-repeat="x in data">	
+		<!--<img class="productImage" src="http://crm.biztechus.com/{{x.path+x.attachmentsid+'_'+x.imagename}}"/>-->
+		<img class="productImage" src="http://172.20.10.184/vtigercrm/{{x.path+x.attachmentsid+'_'+x.imagename}}"/>			
 	</div>
-	
-	
-<div class="container" ng-app="" ng-controller="cntrProd">
-	<table>
-		<tr class="title">
-				<td>Product</td>							
-			</tr>
-		<tr ng-repeat="x in data">	
-			<td><img class="productImage" src="http://crm.biztechus.com/{{x.path+x.attachmentsid+'_'+x.imagename}}"/></td>			
-		</tr>
-	</table>
 </div>
-	
+</div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="js/custom.js"></script>
 </body>

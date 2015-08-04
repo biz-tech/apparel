@@ -14,48 +14,47 @@
 	</div>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
-<form name="add Contact" action="http://localhost/vtigercrm/modules/Webforms/capture.php" method="post" accept-charset="utf-8" enctype="multipart/form-data"><input type="hidden" name="__vtrftk" value="sid:6ad4529b59bf80e4526e5357c8817c4985e6fc71,1438278887">
+<form name="add Contact" action="http://localhost/vtigercrm/modules/Webforms/capture.php" method="post" accept-charset="utf-8" enctype="multipart/form-data"><input type="hidden" name="__vtrftk" value="sid:08d727cee240b1de034aa331f4a2686871f4709d,1438377196">
 	<input type="hidden" name="publicid" value="6a4850543ee8d204feedaed82f993a4c">
 	<input type="hidden" name="name" value="add Contact">
-<input type="hidden" name="VTIGER_RECAPTCHA_PUBLIC_KEY" value="RECAPTCHA PUBLIC KEY FOR THIS DOMAIN">
-	<table>
-<tbody><tr>
+    <input type="hidden" name="VTIGER_RECAPTCHA_PUBLIC_KEY" value="RECAPTCHA PUBLIC KEY FOR THIS DOMAIN">
+    	<table>
+ <tbody><tr>
 
-<td><label>Last Name*</label></td><td>
-<input type="text" name="lastname" value="" required=""></td></tr>
-<tr>
+<td><label>Organization Name*</label></td><td>
+ <input type="text" name="accountname" value="" required=""> </td></tr>
+ <tr>
 
 <td><label>First Name</label></td><td>
-<input type="text" name="firstname" value=""></td></tr>
-<tr>
+ <input type="text" name="label:First_Name_(C.E.O.)" value=""> </td></tr>
+ <tr>
 
-<td><label>Mobile Phone</label></td><td>
-<input type="text" name="mobile" value=""></td></tr>
-<tr>
-
-<td><label>Primary Phone</label></td><td>
-<input type="text" name="phone" value=""></td></tr>
-<tr>
+<td><label>Last Name</label></td><td>
+ <input type="text" name="label:Last_Name_(C.E.O.)" value=""> </td></tr>
+ <tr>
 
 <td><label>Primary Email</label></td><td>
-<input type="email" name="email" value=""></td></tr>
-<tr>
+ <input type="email" name="email1" value=""> </td></tr>
+ <tr>
 
-<td><label>Company</label></td><td>
-<input type="text" name="company" value=""></td></tr>
-<tr>
+<td><label>Primary Phone</label></td><td>
+ <input type="text" name="phone" value=""> </td></tr>
+ <tr>
 
-<td><label>Street</label></td><td>
-	<textarea name="lane"></textarea>
-										</td></tr>
-<tr>
+<td><label>Billing Address</label></td><td>
+      	<textarea name="bill_street"></textarea>
+ </td></tr>
+ <tr>
 
-<td><label>City</label></td><td>
-<input type="text" name="city" value=""></td></tr>
-	</tbody></table>
-<input type="submit" value="Submit">
-</form>
-  
+<td><label>Billing City</label></td><td>
+ <input type="text" name="bill_city" value=""> </td></tr>
+ <tr>
+
+<td><label>Billing State</label></td><td>
+ <input type="text" name="bill_state" value=""> </td></tr>
+ 	</tbody></table>
+    <input type="submit" value="Submit">
+</form>  
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="js/custom.js"></script>

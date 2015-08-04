@@ -14,25 +14,38 @@
 	</div>
 	
 <div class="container" ng-app="" ng-controller="cntrCont">
-		<table>
-			<tr class="title">
-				<td>Firstname</td>
-				<td>Lastname</td>
-				<td>Email</td>
-				<td>Mobile</td>				
-			</tr>
-			<tr ng-repeat="x in data">						
-				<td>{{x.firstname}}</td>
-				<td>{{x.lastname}}</td>
-				<td>{{x.email}}</td>
-				<td>{{x.mobile}}</td>
-			</tr>
-	</table>
+		
+			<div class="title">
+				<ul>
+					<li>Organization ID</li>
+					<li>Organization Name</li>
+					<li>Email</li>
+					<li>Phone</li>				
+				</ul>
+			</div>			
+			<form action="accDetail.html" method="post">
+				<div class="orgContent" ng-repeat="x in data">			
+					<ul>					
+						<li>{{x.accountid}}</li>
+						<li id="orgNm_{{$index}}" class="orgNm" type="submit">{{x.accountname}}</li>
+						<li>{{x.email}}</li>
+						<li>{{x.phone}}</li>	
+					</ul>			
+				</div>
+			</form>
+
 </div>
 
-<input type="button" onclick="location.href='addContact.html';" value="add Contact" />
-
+<input type="button" onclick="location.href='addContact.html';" value="add Contact" />	
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/custom.js"></script>
+<script>
+$(document).on("click", ".orgContent", function() {
+var clickId = $(this).index();
+var orgname = document.getElementById("orgNm_"+clickId).innerHTML;
+location.href=  "accDetail.html?accountDetail="+orgname;	
+});
+</script>
 </body>
 </html>
