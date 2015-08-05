@@ -11,31 +11,40 @@
 		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
 		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
 		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
-	</div>
-	
-	
-<div class="container" ng-app="" ng-controller="cntrOrder">
-	<table>
-		<tr class="title">
-			<td>subject</td>
-			<td>salesorder_no</td>
-			<td>total</td>
-			<td>subtotal</td>
-			<td>sostatus</td>
-			<td>pre_tax_total</td>
-		</tr>
-		<tr ng-repeat="x in data">						
-			<td>{{x.subject}}</td>
-			<td>{{x.salesorder_no}}</td>
-			<td>{{x.total}}</td>
-			<td>{{x.subtotal}}</td>
-			<td>{{x.sostatus}}</td>
-			<td>{{x.pre_tax_total}}</td>			
-		</tr>
-	</table>
+	</div>	
+
+<div class="container" ng-app="" ng-controller="cntrOrder">		
+			<div class="title">
+				<ul>
+					<li>subject</li>
+					<li>salesorder_no</li>
+					<li>total</li>					
+					<li>sostatus</li>
+					
+				</ul>
+			</div>			
+			<form action="orderDetail.html" method="post">
+				<div class="orderContent" ng-repeat="x in data">			
+					<ul>							
+						<li>{{x.subject}}</li>
+						<li id="orderNo_{{$index}}" class="orderNo" type="submit">{{x.salesorder_no}}</li>
+						<li>{{x.total}}</li>					
+						<li>{{x.sostatus}}</li>
+						
+					</ul>			
+				</div>
+			</form>
+
 </div>
-	
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/custom.js"></script>
+<script>
+$(document).on("click", ".orderContent", function() {
+var clickId = $(this).index();
+var orderno = document.getElementById("orderNo_"+clickId).innerHTML;
+location.href=  "orderDetail.html?oper=orderDetail&orderno="+orderno;	
+});
+</script>
 </body>
 </html>

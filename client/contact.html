@@ -13,7 +13,7 @@
 		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
 	</div>
 	
-<div class="container" ng-app="" ng-controller="cntrCont">
+<div class="container" ng-app="" ng-controller="cntrAccount">
 		
 			<div class="title">
 				<ul>
@@ -26,9 +26,9 @@
 			<form action="accDetail.html" method="post">
 				<div class="orgContent" ng-repeat="x in data">			
 					<ul>					
-						<li>{{x.accountid}}</li>
-						<li id="orgNm_{{$index}}" class="orgNm" type="submit">{{x.accountname}}</li>
-						<li>{{x.email}}</li>
+						<li id="orgNo_{{$index}}" class="orgNo" type="submit">{{x.accountid}}</li>
+						<li>{{x.accountname}}</li>
+						<li>{{x.email1}}</li>
 						<li>{{x.phone}}</li>	
 					</ul>			
 				</div>
@@ -36,15 +36,15 @@
 
 </div>
 
-<input type="button" onclick="location.href='addContact.html';" value="add Contact" />	
+<input type="button" onclick="location.href='addContact.html';" value="add Organization" />	
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/custom.js"></script>
 <script>
 $(document).on("click", ".orgContent", function() {
 var clickId = $(this).index();
-var orgname = document.getElementById("orgNm_"+clickId).innerHTML;
-location.href=  "accDetail.html?accountDetail="+orgname;	
+var orgno = document.getElementById("orgNo_"+clickId).innerHTML;
+location.href=  "accDetail.html?oper=accountDetail&orgno="+orgno;	
 });
 </script>
 </body>

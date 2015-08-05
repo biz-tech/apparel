@@ -15,16 +15,23 @@
 	
 <div class="container" ng-app="" ng-controller="cntrProd">	
 	<div class="title">
-			<td>Product</td>							
+			<td>Product</td>
 	</div>	
 	<div ng-repeat="x in data">	
 		<!--<img class="productImage" src="http://crm.biztechus.com/{{x.path+x.attachmentsid+'_'+x.imagename}}"/>-->
-		<img class="productImage" src="http://172.20.10.184/vtigercrm/{{x.path+x.attachmentsid+'_'+x.imagename}}"/>			
-	</div>
+		<img class="productImage" id="{{x.product_no}}" src="http://172.20.10.184/vtigercrm/{{x.path+x.attachmentsid+'_'+x.imagename}}"/>
+	</div> 
 </div>
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/custom.js"></script>
+<script>
+$(document).on("click", ".productImage", function() {
+var clickId = $(this).attr('id');
+location.href=  "productDetail.html?oper=productDetail&productno="+clickId;	
+});
+</script>
 </body>
 </html>
