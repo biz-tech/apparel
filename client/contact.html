@@ -26,10 +26,10 @@
 			<form action="accDetail.html" method="post">
 				<div class="orgContent" ng-repeat="x in data">			
 					<ul>					
-						<li id="orgNo_{{$index}}" class="orgNo" type="submit">{{x.accountid}}</li>
-						<li>{{x.accountname}}</li>
-						<li>{{x.email1}}</li>
-						<li>{{x.phone}}</li>	
+						<li id="orgNo_{{$index}}" class="orgNo" type="submit">{{x.accountid || '-' }}</li>
+						<li>{{x.accountname || '-' }}</li>
+						<li>{{x.email1 || '-' }}</li>
+						<li>{{x.phone || '-' }}</li>	
 					</ul>			
 				</div>
 			</form>

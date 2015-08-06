@@ -26,10 +26,10 @@
 			<form action="orderDetail.html" method="post">
 				<div class="orderContent" ng-repeat="x in data">			
 					<ul>							
-						<li>{{x.subject}}</li>
-						<li id="orderNo_{{$index}}" class="orderNo" type="submit">{{x.salesorder_no}}</li>
-						<li>{{x.total}}</li>					
-						<li>{{x.sostatus}}</li>
+						<li>{{x.subject || '-' }}</li>
+						<li id="orderNo_{{$index}}" class="orderNo" type="submit">{{x.salesorder_no || '-' }}</li>
+						<li>{{x.total || '-' }}</li>					
+						<li>{{x.sostatus || '-' }}</li>
 						
 					</ul>			
 				</div>
