@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mobile test</title>
+<link rel="stylesheet" type="text/css" href="css/detailStyle.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="menu">
+		<a href="contact.html"><img src="img/contact.jpg" class="cont"/></a>
+		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
+		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
+		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
+	</div>			
+<div class="detailContainer" ng-app="" ng-controller="cntrOrderDetail">	
+		<div class="orderContent" ng-repeat="x in data">
+		<!--<form name="accEdit" action = "http://crm.biztechus.com/testdata.php?oper=accountEdit" method="POST">-->
+			<form name="Edit" action = "http://localhost/vtigercrm/testdata.php?oper=orderEdit" method="POST">		
+			<table>
+				<tr>
+					<td>Salesorder No : </td>
+					<td class="editable" id="originSoNo">{{x.salesorder_no|| '-' }}</td>
+					<td><input class="editable" type="text" name="salesorder_no" style="display:none;" readonly></input></td>
+				</tr>
+				<tr>
+					<td>Organization Name :</td>
+					<td class="editable" id="originAccName">{{x.accountname|| '-' }}</td>
+					<td><input class="editable" type="text" name="accountname" style="display:none;" readonly></input></td>
+				</tr>
+				<tr>
+					<td>Status : </td>
+					<td class="editable" id="originSoStatus">{{x.sostatus|| '-' }}</td>
+					<td><input class="editable" type="text" name="sostatus" style="display:none;" readonly></input></td>
+				</tr>
+				<tr>
+					<td>bill_street :</td>
+					<td class="editable" id="originBillStreet">{{x.bill_street|| '-' }}</td>
+					<td><input class="editable" type="text" name="bill_street" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>bill_city : </td>
+					<td class="editable" id="originBillCity">{{x.bill_city|| '-' }}</td>
+					<td><input class="editable" type="text" name="bill_city" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>bill_code :</td>
+					<td class="editable" id="originBillCode">{{x.bill_code|| '-' }}</td>
+					<td><input class="editable" type="text" name="bill_code" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>ship_street : </td>
+					<td class="editable" id="originShipStreet">{{x.ship_street|| '-' }}</td>
+					<td><input class="editable" type="text" name="ship_street" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>ship_city : </td>
+					<td class="editable" id="originShipCity">{{x.ship_city|| '-' }}</td>
+					<td><input class="editable" type="text" name="ship_city" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>ship_code :</td>
+					<td class="editable" id="originShipCode">{{x.ship_code|| '-' }}</td>
+					<td><input class="editable" type="text" name="ship_code" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>product name : </td>
+					<td class="editable" id="originSoPd">{{x.productname|| '-' }}</td>
+					<td><input class="editable" type="text" name="productname" style="display:none;" readonly></input></td>
+				</tr>				
+				<tr>
+					<td>quantity : </td>
+					<td class="editable" id="originSoQnt">{{x.quantity|| '-' }}</td>
+					<td><input class="editable" type="text" name="quantity" style="display:none;"></input></td>
+					<td>Current Stock : {{x.qtyinstock}}</td>
+				</tr>
+				<tr>
+					<td>listprice :</td>
+					<td class="editable" id="originSoPrc">{{x.listprice|| '-' }}</td>
+					<td><input class="editable" type="text" name="listprice" style="display:none;" readonly></input></td>
+				</tr>
+				<tr>
+					<td>discount :</td>
+					<td class="editable">
+						<div id="originDcPer">{{x.discount_percent|| '-' }}</div>
+					    <div id="originDcAmt" style="display:none">{{x.discount_amount|| '-' }}</div>
+					</td>						
+					<td>
+						<input class="editable" type="text" name="discount" style="display:none;"></input>												
+					</td>
+					<td>
+					<select id="discountType" name="discountType" onChange="selectChange()">
+						<option value="percent">Percent(%)</option>
+						<option value="amount">Amount($)</option>					
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Sub Total :</td>
+					<td class="editable" id="originSoSubtotal">{{x.subtotal|| '-' }}</td>
+					<td><input class="editable" type="text" name="subtotal" style="display:none;" readonly></input></td>
+				</tr>				
+				
+				<tr>
+					<td>tax1 VAT(%) : </td>
+					<td class="editable" id="originSoTax1">{{x.tax1|| '-' }}</td>
+					<td><input class="editable" type="text" name="tax1" style="display:none;" readonly></input></td>
+				</tr>
+				<!--<tr>
+					<td>tax2 Sales(%) :</td>
+					<td class="editable" id="originSoTax2">{{x.tax2|| '-' }}</td>
+					<td><input class="editable" type="text" name="tax2" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>tax3 Service(%) : </td>
+					<td class="editable" id="originSoTax3">{{x.tax3|| '-' }}</td>
+					<td><input class="editable" type="text" name="tax3" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>shtax1 : </td>
+					<td class="editable" id="originSoStax1">{{x.shtax1|| '-' }} %</td>
+					<td><input class="editable" type="text" name="shtax1" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>shtax2 :</td>
+					<td class="editable" id="originSoStax2">{{x.shtax2|| '-' }} %</td>
+					<td><input class="editable" type="text" name="shtax2" style="display:none;"></input></td>
+				</tr>
+				<tr>
+					<td>shtax3 : </td>
+					<td class="editable" id="originSoStax3">{{x.shtax3|| '-' }} %</td>
+					<td><input class="editable" type="text" name="shtax3" style="display:none;"></input></td>
+				</tr>-->				
+				<tr>
+					<td>Total :</td>
+					<td class="editable" id="originSoTotal">{{x.total|| '-' }}</td>
+					<td><input class="editable" type="text" name="total" style="display:none;" readonly></input></td>
+				</tr>
+				<tr>
+					<td>comment : </td>
+					<td class="editable" id="originSoCom">{{x.comment|| '-' }}</td>
+					<td><input class="editable" type="text" name="comment" style="display:none;"></input></td>
+				</tr>				
+			</table>
+			<td><input name="currentUrl"></input></td>
+			<td><input name="stage"></input></td>
+			</form>	
+		<hr/>			
+		</div>
+		<div>
+			<input id="edit" type="button" style="background:lightgray;" value="Edit"/>
+			<input id="save" type="submit" style="display:none;background:lightblue;" value="Save"/>
+			<input id="delete" type="button" style="background:orange;" value="Delete"/>				
+		</div>		
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

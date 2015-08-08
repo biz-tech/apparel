@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mobile test</title>
+<link rel="stylesheet" type="text/css" href="css/detailStyle.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="menu">
+		<a href="contact.html"><img src="img/contact.jpg" class="cont"/></a>
+		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
+		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
+		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
+	</div>
+	
+<div class="detailContainer" ng-app="" ng-controller="cntrProductDetail">	
+		<div class="productContent" ng-repeat="x in data">						
+			<table>
+				<tr>
+					<td>product_no :</td>
+					<td>{{x.product_no|| '-' }}</td>
+				</tr>
+				<tr>
+					<td>productname : </td>
+					<td>{{x.productname|| '-' }}</td>
+				</tr>
+				<tr>
+					<td>unit_price :</td>
+					<td>{{x.unit_price|| '-' }}</td>
+				</tr>
+				<tr>
+					<td>weight : </td>
+					<td>{{x.weight|| '-' }}</td>
+				</tr>
+				<tr>
+					<td>packsize : </td>
+					<td>{{x.pack_size|| '-' }}</td>
+				</tr>		
+				<tr>
+					<td>sales_start_date : </td>
+					<td>{{x.sales_start_date|| '-' }}</td>
+				</tr>
+				<tr>
+					<td>sales_end_date : </td>
+					<td>{{x.sales_end_date|| '-' }}</td>
+				</tr>						
+			</table>					
+		</div>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

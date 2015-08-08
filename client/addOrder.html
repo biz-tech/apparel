@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mobile test</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="menu">
+		<a href="contact.html"><img src="img/contact.jpg" class="cont"/></a>
+		<a href="product.html"><img src="img/product.jpg" class="prod"/></a>
+		<a href="order.html"><img src="img/order.jpg" class="order"/></a>
+		<a href="index.html"><img src="img/etc.jpg" class="home"/></a>
+	</div>			
+<div class="addOrderContainer" ng-app="" ng-controller="cntrAddOrder">	
+		<div class="orderContent" ng-repeat="x in data">
+		<!--<form name="accEdit" action = "http://crm.biztechus.com/testdata.php?oper=accountEdit" method="POST">-->
+			<form name="Edit" action = "http://localhost/vtigercrm/testdata.php?oper=addOrderIns" method="POST">		
+			
+			
+			<div>
+				<span>Salesorder No : </span>									
+				<input type="text" name="salesorder_no" value="{{x.salesorder_no|| '-' }}" readonly></input>
+			</div>
+			
+			<div>
+				<span>Organization Name :</span>				
+				<input class="editable" type="text" name="accountname" ></input>
+			</div>
+			
+			<div>
+				<span>Status : </span>				
+				<input class="editable" type="text" name="sostatus" readonly></input>
+			</div>
+			
+			<div>
+			<span>bill_street :</span>			
+			<input class="editable" type="text" name="bill_street"></input></div>
+			
+			<div>
+			<span>bill_city : </span>			
+			<input class="editable" type="text" name="bill_city"></input></div>
+			
+			<div>
+			<span>bill_code :</td>			
+			<input class="editable" type="text" name="bill_code"></input></div>
+			
+			<div>
+			<span>ship_street : </span>			
+			<input class="editable" type="text" name="ship_street" ></input></div>
+			
+			<div>
+			<span>ship_city : </span>			
+			<input class="editable" type="text" name="ship_city"></input></div>
+			
+			<div>
+			<span>ship_code :</span>			
+			<input class="editable" type="text" name="ship_code"></input></div>
+			
+			<div>
+			<span>product name : </span>			
+			<input class="editable" type="text" name="productname" readonly></input></div>
+						
+			<div>
+			<span>quantity : </span>			
+			<input class="editable" type="text" name="quantity"></input></span>
+				
+			<div>
+			<span>listprice :</span>			
+			<input class="editable" type="text" name="listprice" readonly></input></div>
+						
+			<span>discount :</span>			
+			<input class="editable" type="text" name="discount"></input>
+			<select id="discountType" name="discountType" onChange="selectChange()">
+				<option value="percent">Percent(%)</option>
+				<option value="amount">Amount($)</option>					
+			</select>			
+			
+			<div>
+			<span>Sub Total :</span>			
+			<input class="editable" type="text" name="subtotal" readonly></input></div>
+			
+			<div>
+			<span>Total :</span>			
+			<input class="editable" type="text" name="total" readonly></input></div>
+			
+			<div>
+			<span>comment : </span>			
+			<input class="editable" type="text" name="comment" ></input></div>
+						
+			
+			<td><input name="currentUrl"></input></td>
+			<td><input name="stage"></input></td>
+			</form>	
+		<hr/>			
+		</div>
+		<div>			
+			<input id="save" type="submit" style="background:lightblue;" value="Save"/>			
+		</div>		
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
